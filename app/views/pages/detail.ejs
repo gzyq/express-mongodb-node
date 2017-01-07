@@ -1,0 +1,62 @@
+<%- include('../includes/head') %> 
+<script src="/js/detail.js"></script>
+<div class="main">
+	<h1><%= title %></h1>
+	<div class="detail-video">
+		<video src="<%= movie.flash %>"></video>
+		<%if(movie.poster.indexOf('http')>-1){%>
+			<img src="<%= movie.poster %>" alt="<%=movie.title %>">
+		<%}else{%>
+			<img src="/upload/<%= movie.poster %>" alt="<%=movie.title %>">
+		<%}%>
+	</div>
+	<div>
+		<ul>
+			<li>电影名字：<%= movie.title %></li>
+			<li>导演：<%= movie.doctor %></li>
+			<li>国家：<%= movie.country %></li>
+			<li>语言：<%= movie.language %></li>
+			<li>年份：<%= movie.year %></li>
+			<li>简介：<%= movie.summary %></li>
+		</ul>
+	</div>
+	<div class="comment">
+		<h1>评论区</h1>
+		<div class="">
+		<ul class="comm_list">
+			<% comments.forEach((item)=>{ %> 
+			<li>
+				<div class="comm_name"><%= item.from.name %></div>
+				<p class="comm_cont"><%= item.content %></p>
+				<a href="#comm_send" class="a_replay" data-cid="<%=item._id %>" data-tid="<%=item.from._id %>">回复</a>
+				<% if(item.reply&& item.reply.length > 0){ %>
+				<div class="reply_box">	
+				<% item.reply.forEach((reply)=>{ %> 					
+					<div class="comm_name"><%= reply.from.name %></div>
+					<p class="comm_cont"><%= reply.content %></p>
+			    	<a href="#comm_send" class="a_replay" data-cid="<%=item._id %>" data-tid="<%=item.from._id %>">回复</a>
+			   	<% }) %>
+				</div>
+				<% } %> 					
+			</li>
+			<!--data-cid：主评论的id，data-tid：当前主评论人的id-->
+			<% }) %> 
+		</ul>
+		</div>
+		<div class="comm_send" id="comm_send">
+			<form id="commForm" action="/user/comment" method="post">
+				<input type="hidden" name="comment[movie]" value="<%= movie._id %>" />
+				<% if(user){ %>
+				<input type="hidden" name="comment[from]" value="<%= user._id %>" />
+				<% } %>
+				<textarea name="comment[content]"></textarea>
+				<% if(user){ %>
+				<button type="submit">提交</button>
+				<% }else{ %>
+				<a href="/signin">登录后评论</a>
+				<% } %>
+			</form>
+		</div>
+	</div>
+</div>
+<%- include('../includes/foot') %> 

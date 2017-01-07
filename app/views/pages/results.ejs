@@ -1,0 +1,33 @@
+<%- include('../includes/head') %> 
+<div class="main"> 
+	<h1><%= title %></h1>   
+	<div class="catetory"><%= keyword %></div>
+
+	<% if(catetory.movies && catetory.movies.length >0) { %>  
+	<ul class="catetory_ul">
+		<% catetory.movies.forEach(function(item){%>
+		  <li>            
+			<p class="movie_poster"><a href="movie/<%= item._id %>"><img src="<%= item.poster %>" alt="<%=item.title %>"></a></p>
+			<p class="movie_name"><%= item.title %></p>
+			<p class="movie_play"><a href="movie/<%= item._id %>">点击观看</a></p>	
+		</li>		
+		<% }) %>
+	</ul>	
+	<% } %>  
+
+	<div class="page">
+		<ul>
+		当前页数：<%= currentPage %>
+		<% for(var i=0;i < totalPage; i++){  %> 
+			<% if( currentPage == (i+1)){%>
+				<li class="page_active"><span><%= currentPage %></span></li>
+			<% }else{ %>
+				<li>
+					<a href="/results?<%= query %>&page=<%= i %>"><span><%= i %></span></a>
+				</li>
+			<% } %>
+		<% } %>
+		</ul>
+	</div>
+</div>
+<%- include('../includes/foot') %>

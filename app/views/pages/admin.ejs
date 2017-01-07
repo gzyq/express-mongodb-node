@@ -1,0 +1,29 @@
+<%- include('../includes/head') %>
+<div class="main"> 
+	<h1><%= title %></h1>
+	<form action="/admin/movie/new" method="post" enctype="multipart/form-data">
+		<label for="inputTitle">豆瓣同步:</label>
+		<input type="text" name="douban" id="douban" /><br/>
+	<% if (movie._id) { %>
+		<input type="hidden" name="movie[_id]" value="<%= movie._id %>">
+	<% } %>
+		<label for="inputTitle">分类:</label>
+		<input type="text" name="movie[catetoryName]"  value="<%= movie.catetoryName %>"><br/>
+		<% catetories.forEach(function(cat){%>              
+			<input type="radio" name="movie[catetory]" value="<%= cat._id %>"><%= cat.name %>
+		<% }) %>	
+		<br/>
+		<label for="inputTitle">名字:</label><input type="text" name="movie[title]" id="inputTitle" value="<%= movie.title %>"><br/>
+		<label for="inputDoctor">导演：</label><input type="text" name="movie[doctor]" id="inputDoctor" value="<%= movie.doctor %>"><br/>
+		<label for="inputCountry">国家：</label><input type="text" name="movie[country]" id="inputCountry" value="<%= movie.country %>"><br/>
+		<label for="inputLanguage">语言：</label><input type="text" name="movie[language]" id="inputLanguage" value="<%= movie.language %>"><br/>
+		<label for="inputYear">年份：</label><input type="text" name="movie[year]" id="inputYear" value="<%= movie.year %>"><br/>
+		<label for="inputSummary">简介：</label><input type="text" name="movie[summary]" id="inputSummary" value="<%= movie.summary %>"><br/>
+		<label for="inputPoster">海报：</label><input type="text" name="movie[poster]" id="inputPoster" value="<%= movie.poster %>"><br/>
+		<label for="inputPoster">海报上传：</label><input type="file" name="uploadPoster" id="uploadPoster"><br/>
+		<label for="inputFlash">视频来源：</label><input type="text" name="movie[flash]" id="inputFlash" value="<%= movie.flash %>"><br/>
+		<input type="submit" value="提交">
+	</form>
+</div>
+<%- include('../includes/foot') %>
+

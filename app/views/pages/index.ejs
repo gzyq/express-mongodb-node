@@ -1,0 +1,25 @@
+<%- include('../includes/head') %> 
+<div class="main">
+	<h1><%= title %></h1>
+	<% catetories.forEach(function(cat){%>              
+		<div class="catetory"><a href="/results?cat=<%= cat._id %>&page=0"><%= cat.name %></a></div>
+		<% if(cat.movies && cat.movies.length >0) { %>  
+			<ul class="catetory_ul">
+				<% cat.movies.forEach(function(item){%>
+				  <li>            
+					<p class="movie_poster"><a href="movie/<%= item._id %>">
+					<%if(item.poster.indexOf('http')>-1){%>
+						<img src="<%= item.poster %>" alt="<%=item.title %>">
+					<%}else{%>
+						<img src="/upload/<%= item.poster %>" alt="<%=item.title %>">
+					<%}%>
+					</a></p>
+					<p class="movie_name"><%= item.title %></p>
+					<p class="movie_play"><a href="movie/<%= item._id %>">点击观看</a></p>	
+				</li>		
+				<% }) %>
+			</ul>	
+		<% } %>  
+	<% }) %>
+</div>
+<%- include('../includes/foot') %> 

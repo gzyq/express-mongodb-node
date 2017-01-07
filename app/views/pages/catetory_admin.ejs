@@ -1,0 +1,10 @@
+<%- include('../includes/head') %> 
+<div class="main">
+	<h1><%= title %></h1>
+	<form action="/admin/catetory" method="post">
+		<label for="inputTitle">电影分类:</label><input type="text" name="catetory[name]" id="catetoryName" value="ee"/><br/>
+		<input type="submit" value="录入">
+	</form>
+</div>
+<%- include('../includes/foot') %>
+

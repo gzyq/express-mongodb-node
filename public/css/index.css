@@ -1,0 +1,136 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+ul,li{
+	list-style:none;
+}
+body{
+    font-family:"Microsoft YaHei", "YaHei", "微软雅黑", "Helvetic Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+}
+a,a:hover{
+	color: #000;
+	text-decoration: none;
+}
+img{
+	display: block;
+	width: 150px;
+}
+h1{
+	font-size: 18px;
+	padding: 5px 0;
+	margin-bottom: 5px;
+    border-bottom: solid 2px #FFAFC9;
+}
+th,td{
+	width: 10%;
+	text-align: left;
+	overflow: hidden;
+}
+.header{
+	 background: #FFAFC9;
+	 height: 40px;
+}
+/* 导航条 */
+.nav{
+	overflow: hidden;
+	padding: 10px;
+   	background: #FFAFC9;
+   	position: 	fixed;
+   	top: 0;
+   	width: 	100%;
+}
+.nav ul li{
+	float: left;
+}
+.nav ul li a{
+	display: block;
+	padding: 0 0 0 20px;
+	cursor: pointer;
+}
+.main{
+	margin-left: 30px;
+}
+.index-moive{
+	
+}
+
+.index-moive ul{
+	overflow: hidden;
+}
+.index-moive ul li{
+	width: 150px; 
+	height: 210px;  
+	padding: 5px;
+	float: left;
+}
+.catetory{
+	font-size: 15px;
+	font-weight: bold;
+}
+.catetory_ul{
+	overflow: hidden;
+    margin-bottom: 10px;
+}
+.catetory_ul li{
+	float: left;
+	padding: 5px;
+}
+
+.movie_id{
+	word-wrap: break-word;
+	font-size: 12px;
+}
+.index-moive ul li img{
+	width:100%;
+}
+/* 电影详情 */
+.detail-video video{
+	width: 200px;
+	
+}
+.detail-video img{
+	display: block;
+	width: 200px;
+}
+
+/* 分页 */
+.page_active{
+	color: #FFAFC9;
+}
+/* 底部footer
+ */
+.footer-wrap{
+	width: 100%;
+	height: 30px;
+}
+.footer{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background: #FFAFC9 ;
+}
+
+/* 评论区 */
+.comm_list li{
+	border-bottom: 1px solid #e5e9ef;
+}
+.comm_name{
+	color: #6d757a;
+	font-size: 12px;
+    font-weight: bold;
+    line-height: 18px;
+    padding-bottom: 4px;
+    display: block;
+}
+.comm_cont{
+	line-height: 20px;
+    padding: 2px 0;
+    font-size: 14px;
+}
+.a_replay{
+	color: #99a2aa;
+    line-height: 26px;
+    font-size: 12px;
+}

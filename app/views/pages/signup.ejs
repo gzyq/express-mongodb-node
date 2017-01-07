@@ -1,0 +1,11 @@
+<%- include('../includes/head') %> 
+<div class="main"> 
+	<h1><%= title %></h1>
+	<form action="/user/signup" method="post">
+		<label for="userName">用户名:</label><input type="text" name="user[name]" id="userName" value=""><br/>
+		<label for="signupPassWord">密码：</label><input type="text" name="user[password]" id="signupPassWord" value=""><br/>
+		<button>关闭</button>
+		<input type="submit" value="提交">
+	</form>
+</div> 
+<%- include('../includes/foot') %> 
