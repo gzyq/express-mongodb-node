@@ -105,7 +105,7 @@ exports.userlist = function(req,res){
 				console.log(err);
 			}
 			res.render('userlist',{
-				title: "imooc 用户列表页",
+				title: "用户列表页",
 				users: users
 			})
 		});

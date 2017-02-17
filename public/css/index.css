@@ -49,6 +49,9 @@ th,td{
 	padding: 0 0 0 20px;
 	cursor: pointer;
 }
+.active{
+	color:#FFF;
+}
 .main{
 	margin-left: 30px;
 }
@@ -109,7 +112,12 @@ th,td{
 	position: fixed;
 	bottom: 0;
 	width: 100%;
+	text-align: right;
 	background: #FFAFC9 ;
+}
+.footer a{
+	padding: 6px;
+    display: inline-block;
 }
 
 /* 评论区 */
